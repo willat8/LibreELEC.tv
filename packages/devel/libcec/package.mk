@@ -10,6 +10,7 @@ PKG_SITE="http://libcec.pulse-eight.com/"
 PKG_URL="https://github.com/Pulse-Eight/libcec/archive/$PKG_VERSION.tar.gz"
 PKG_DEPENDS_TARGET="toolchain systemd p8-platform swig:host"
 PKG_LONGDESC="libCEC is an open-source dual licensed library designed for communicating with the Pulse-Eight USB - CEC Adaptor."
+PKG_PATCH_DIRS="custom"
 
 PKG_CMAKE_OPTS_TARGET="-DBUILD_SHARED_LIBS=1 \
                        -DCMAKE_INSTALL_LIBDIR:STRING=lib \
@@ -29,7 +30,7 @@ if [ "$DISPLAYSERVER" = "x11" ]; then
 fi
 
 if [ "$CEC_FRAMEWORK_SUPPORT" = "yes" ]; then
-  PKG_PATCH_DIRS="cec-framework"
+  PKG_PATCH_DIRS+=" cec-framework"
   PKG_CMAKE_OPTS_TARGET="$PKG_CMAKE_OPTS_TARGET -DHAVE_LINUX_API=1"
 fi
 
