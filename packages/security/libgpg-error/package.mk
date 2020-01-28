@@ -31,6 +31,7 @@ pre_configure_target() {
   esac
 
   cp $PKG_BUILD/src/syscfg/lock-obj-pub.$GPGERROR_TUPLE.h $PKG_BUILD/src/syscfg/lock-obj-pub.$GPGERROR_TARGET.h
+  sed -i -e "s/namespace/varerrno/g" $PKG_BUILD/src/{Makefile.{in,am},mkstrtable.awk}
 }
 
 post_makeinstall_target() {
