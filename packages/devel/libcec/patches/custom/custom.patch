@@ -1,0 +1,29 @@
+--- libcec/src/libcec/implementations/CECCommandHandler.cpp.orig	2020-01-27 20:11:01.377194776 +1100
++++ libcec/src/libcec/implementations/CECCommandHandler.cpp	2020-01-27 20:13:47.866081215 +1100
+@@ -645,16 +645,16 @@
+     CCECBusDevice *device = GetDeviceByPhysicalAddress(iStreamAddress);
+     if (device)
+     {
+-      if (device->IsHandledByLibCEC())
+-      {
+-        if (!device->IsActiveSource())
+-          device->ActivateSource();
+-        else
+-        {
+-          device->MarkAsActiveSource();
+-          device->TransmitActiveSource(true);
+-        }
+-      }
++      //if (device->IsHandledByLibCEC())
++      //{
++        //if (!device->IsActiveSource())
++          //device->ActivateSource();
++        //else
++        //{
++          //device->MarkAsActiveSource();
++          //device->TransmitActiveSource(true);
++        //}
++      //}
+       return COMMAND_HANDLED;
+     }
+   }
